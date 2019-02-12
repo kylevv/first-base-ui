@@ -1,22 +1,28 @@
 import React, { Component } from 'react'
 import Nav from './Nav'
-// import Footer from './Footer'
-// import Gallery from './Gallery'
+import BasicPage from './BasicPage'
+import './Main.scss'
+
+const componentForPath = {
+  '/basic': BasicPage,
+  '/content': BasicPage,
+  '/surfaces': BasicPage
+}
 
 class Main extends Component {
   shouldComponentUpdate (nextProps, nextState) {
     return this.props.match.path !== nextProps.match.path
   }
 
-  // handleClick () {
-  //   this.props.history.push('/')
-  // }
-
   render () {
     const { history, location, match } = this.props
+    const PageContent = componentForPath[match.path]
     return (
-      <div>
+      <div className='Main'>
         <Nav history={history} location={location} match={match} />
+        <div className='Main-content'>
+          <PageContent />
+        </div>
       </div>
     )
   }
