@@ -1,26 +1,24 @@
 import React, { Component } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { Router, Route, Switch, Redirect } from 'react-router'
+import { createBrowserHistory } from 'history'
+import Home from './components/Home'
+
+const history = createBrowserHistory({ basename: '' })
+const location = history.location
+const paths = ['/buttons']
 
 class App extends Component {
   render () {
     return (
-      <div className='App'>
-        <header className='App-header'>
-          <img src={logo} className='App-logo' alt='logo' />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className='App-link'
-            href='https://reactjs.org'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router history={history}>
+        <Switch>
+          <Route exact path='/' history={history} location={location} component={Home} />
+          {paths.map((path, i) => {
+            return <Route key={i} exact path={path} history={history} location={location} component={Home} />
+          })}
+          <Redirect to='/' />
+        </Switch>
+      </Router>
     )
   }
 }
