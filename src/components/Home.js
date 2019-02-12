@@ -3,21 +3,32 @@ import logo from '../logo.svg'
 import './Home.scss'
 
 class Home extends Component {
+  constructor (props) {
+    super(props)
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick (ev) {
+    ev.preventDefault()
+    this.props.history.push('/basic')
+  }
+
   render () {
     return (
       <div className='Home'>
         <header className='Home-header'>
           <img src={logo} className='Home-logo' alt='logo' />
           <p>
-            Edit <code>src/App.js</code> and save to reload.
+            Base UI Example Project
           </p>
           <a
             className='Home-link'
-            href='https://reactjs.org'
+            href='/basic'
             target='_blank'
             rel='noopener noreferrer'
+            onClick={this.handleClick}
           >
-            Learn React
+            Get Started - Click Here
           </a>
         </header>
       </div>
