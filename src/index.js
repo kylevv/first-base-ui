@@ -4,14 +4,23 @@ import './index.scss'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 
+import { createStore, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
+import reducers from './reducers'
+
 import { Provider as StyletronProvider } from 'styletron-react'
 import { Client as Styletron } from 'styletron-engine-atomic'
+
 const engine = new Styletron()
+const store = createStore(reducers, applyMiddleware(thunk))
 
 ReactDOM.render(
-  <StyletronProvider value={engine}>
-    <App />
-  </StyletronProvider>,
+  <Provider store={store}>
+    <StyletronProvider value={engine}>
+      <App />
+    </StyletronProvider>
+  </Provider>,
   document.getElementById('root')
 )
 

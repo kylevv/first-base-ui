@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import Nav from './Nav'
 import BasicPage from './BasicPage'
+import SurfacesPage from './SurfacesPage'
 import './Main.scss'
 
 const componentForPath = {
   '/basic': BasicPage,
   '/content': BasicPage,
-  '/surfaces': BasicPage
+  '/surfaces': SurfacesPage
 }
 
 class Main extends Component {
