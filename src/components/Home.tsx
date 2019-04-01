@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import logo from '../assets/logo.svg'
 import './Home.scss'
 
-class Home extends Component {
-  constructor (props) {
+class Home extends Component<any, any> {
+  constructor (props: any) {
     super(props)
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick (ev) {
+  handleClick (ev: any) {
     ev.preventDefault()
     this.props.history.push('/basic')
   }

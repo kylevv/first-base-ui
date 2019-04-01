@@ -3,14 +3,14 @@ import { Button, KIND } from 'baseui/button'
 import { StyledRadio, RadioGroup } from 'baseui/radio'
 import { MarginBelow } from '../helpers/PositionHelpers'
 
-class Basic extends Component {
-  constructor (props) {
+class Basic extends Component<any, any> {
+  constructor (props: any) {
     super(props)
     this.state = { value: KIND.primary }
     this.handleChange = this.handleChange.bind(this)
   }
 
-  handleChange (ev) {
+  handleChange (ev: any) {
     const value = ev.target.value
     this.setState(() => {
       return { value }

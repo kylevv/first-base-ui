@@ -4,14 +4,14 @@ import BasicPage from './BasicPage'
 import SurfacesPage from './SurfacesPage'
 import './Main.scss'
 
-const componentForPath = {
+const componentForPath: any = {
   '/basic': BasicPage,
   '/content': BasicPage,
   '/surfaces': SurfacesPage
 }
 
-class Main extends Component {
-  shouldComponentUpdate (nextProps, nextState) {
+class Main extends Component<any, any> {
+  shouldComponentUpdate (nextProps: any, nextState: any) {
     return this.props.match.path !== nextProps.match.path
   }
 

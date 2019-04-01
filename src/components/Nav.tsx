@@ -7,13 +7,13 @@ import {
 } from 'baseui/header-navigation'
 import { StyledLink as Link } from 'baseui/link'
 
-class Nav extends Component {
-  constructor (props) {
+class Nav extends Component<any, any> {
+  constructor (props: any) {
     super(props)
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick (ev) {
+  handleClick (ev: any) {
     ev.preventDefault()
     const origin = window.location.origin
     const href = ev.target.href

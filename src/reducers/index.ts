@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 
-const posts = (state = [], action) => {
+const posts = (state = [], action: any) => {
   switch (action.type) {
     case 'POSTS':
       return action.payload
@@ -9,10 +9,10 @@ const posts = (state = [], action) => {
   }
 }
 
-const photos = (state = {}, action) => {
+const photos = (state = {}, action: any) => {
   switch (action.type) {
     case 'PHOTO':
-      const clone = { ...state }
+      const clone: any = { ...state }
       clone[action.payload.id] = action.payload
       return clone
     default:
